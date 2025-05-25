@@ -1,0 +1,34 @@
+---
+import Layout from '../layouts/Layout.astro';
+import AdminDashboard from '../components/AdminDashboard.vue';
+---
+
+<Layout title="Admin Dashboard - Sirsandwich Shop" description="Admin interface for managing products and orders at Sirsandwich Shop">
+  <main class="container mx-auto px-4 py-8">
+    <!-- Header -->
+    <header class="text-center mb-12">
+      <h1 class="text-4xl font-bold text-gray-800 mb-4">🔧 Admin Dashboard</h1>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Manage your sandwich shop products, inventory, and settings
+      </p>
+      <div class="mt-6 bg-orange-50 rounded-lg p-4 max-w-2xl mx-auto">
+        <p class="text-sm text-orange-800">
+          <strong>⚠️ Demo Mode:</strong> This is a demonstration admin interface. In production, this would require authentication.
+        </p>
+      </div>
+    </header>
+
+    <!-- Admin Dashboard Component -->
+    <AdminDashboard client:visible />
+
+    <!-- Navigation Links -->
+    <div class="text-center mt-12 space-x-4">
+      <a href="/products" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg transition duration-300">
+        View Store
+      </a>
+      <a href="/" class="bg-gray-500 hover:bg-gray-600 text-white font-semibold py-3 px-6 rounded-lg transition duration-300">
+        ← Back to Home
+      </a>
+    </div>
+  </main>
+</Layout> 
