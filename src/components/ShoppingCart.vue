@@ -19,7 +19,7 @@
     <!-- Cart Dropdown -->
     <div
       v-if="cartStore.isOpen"
-      class="absolute right-0 mt-2 w-96 bg-white border border-gray-200 rounded-lg shadow-xl z-50 max-h-96 overflow-hidden"
+      class="absolute right-0 mt-2 w-96 bg-white border border-gray-200 rounded-lg shadow-xl z-50 overflow-hidden"
     >
       <!-- Cart Header -->
       <div class="p-4 border-b border-gray-200 bg-gray-50">
