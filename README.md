@@ -76,14 +76,30 @@ src/
 ├── layouts/
 │   └── Layout.astro          # Base layout component
 ├── pages/
-│   ├── index.astro          # Home page
+│   ├── index.astro          # Home page with admin link
 │   ├── about.astro          # About page
-│   ├── products.astro       # Menu/Products page
-│   ├── contact.astro        # Contact page
+│   ├── products.astro       # Interactive menu with cart and filtering
+│   ├── contact.astro        # Contact page with Vue form
+│   ├── admin.astro          # Admin dashboard for CRUD operations
 │   └── order.astro          # Order page (placeholder)
+├── components/              # Vue.js components
+│   ├── ProductCard.vue      # Interactive product display with cart
+│   ├── ContactForm.vue      # Real-time form validation
+│   ├── CategoryFilter.vue   # Product category filtering
+│   ├── SearchBar.vue        # Live product search
+│   ├── ShoppingCart.vue     # Complete cart interface
+│   ├── ProductsGrid.vue     # Dynamic product rendering
+│   └── AdminDashboard.vue   # Full CRUD admin interface
+├── stores/                  # Pinia state management
+│   ├── pinia.js            # Pinia setup and exports
+│   ├── cartStore.js        # Shopping cart state
+│   └── productsStore.js    # Products and filtering state
 ├── styles/
 │   └── global.css           # Global Tailwind CSS
-└── components/              # Future Vue.js components
+└── docs/                    # Phase documentation
+    ├── phase1.md           # Phase 1 development log
+    ├── phase2.md           # Phase 2 development log
+    └── phase3.md           # Phase 3 development log
 ```
 
 ## 🎯 Next Steps (Phase 4)
