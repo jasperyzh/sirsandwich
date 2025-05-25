@@ -1,8 +1,7 @@
 -- Sirsandwich Shop Database Schema
 -- Run this SQL in your Supabase SQL Editor to set up the database
 
--- Enable Row Level Security
-ALTER DATABASE postgres SET "app.jwt_secret" TO 'your-jwt-secret';
+-- Note: JWT secrets are automatically managed by Supabase
 
 -- Create categories table
 CREATE TABLE IF NOT EXISTS categories (

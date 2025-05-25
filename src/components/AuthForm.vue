@@ -129,13 +129,33 @@
       </p>
     </div>
 
-    <!-- Demo Account Info -->
-    <div class="mt-4 p-3 bg-blue-50 border border-blue-200 rounded-lg">
-      <p class="text-sm text-blue-800">
-        <strong>Demo Account:</strong><br>
-        Email: admin@sirsandwich.com<br>
-        Password: admin123
-      </p>
+    <!-- Account Info -->
+    <div class="mt-4 space-y-3">
+      <!-- Demo Accounts -->
+      <div class="p-3 bg-blue-50 border border-blue-200 rounded-lg">
+        <p class="text-sm text-blue-800">
+          <strong>🧪 Demo Accounts (Development):</strong><br>
+          <strong>Admin:</strong> admin@sirsandwich.com / admin123<br>
+          <strong>Customer:</strong> customer@sirsandwich.com / customer123
+        </p>
+      </div>
+      
+      <!-- Real Accounts -->
+      <div class="p-3 bg-green-50 border border-green-200 rounded-lg">
+        <p class="text-sm text-green-800">
+          <strong>🔐 Live Accounts (Production):</strong><br>
+          <strong>Admin:</strong> live_admin@sirsandwich.com / SecureAdmin123!<br>
+          <strong>Customer:</strong> live_customer@emailtest.com / SecureCustomer123!
+        </p>
+      </div>
+      
+      <!-- Instructions -->
+      <div class="p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
+        <p class="text-sm text-yellow-800">
+          <strong>📝 Note:</strong> Live accounts need to be created in Supabase first. 
+          Run the SQL script in <code>docs/create-real-users.sql</code> to set up the database.
+        </p>
+      </div>
     </div>
   </div>
 </template>

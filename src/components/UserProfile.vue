@@ -138,30 +138,9 @@
         </div>
       </div>
 
-      <!-- Quick Actions -->
+      <!-- Role Dashboard -->
       <div class="border-t pt-6">
-        <h3 class="text-lg font-semibold text-gray-800 mb-4">Quick Actions</h3>
-        <div class="flex flex-wrap gap-4">
-          <button
-            @click="$emit('view-orders')"
-            class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition duration-300"
-          >
-            📋 View My Orders
-          </button>
-          <button
-            @click="$emit('browse-products')"
-            class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg transition duration-300"
-          >
-            🛒 Browse Products
-          </button>
-          <button
-            v-if="authStore.isAdmin"
-            @click="$emit('admin-dashboard')"
-            class="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded-lg transition duration-300"
-          >
-            ⚙️ Admin Dashboard
-          </button>
-        </div>
+        <RoleDashboard />
       </div>
     </div>
 
@@ -179,6 +158,7 @@
 import { ref, reactive, computed, createApp } from 'vue'
 import { useAuthStore } from '../stores/authStore.js'
 import { pinia } from '../stores/pinia.js'
+import RoleDashboard from './RoleDashboard.vue'
 
 // Initialize Pinia and use auth store
 const app = createApp({})

@@ -98,6 +98,11 @@ After running the schema, check:
    - **Enable email confirmations**: Toggle based on your preference
    - **Enable email change confirmations**: Recommended to keep enabled
 
+
+---
+---
+---
+
 ### 2. Configure Site URL (for production)
 
 1. In **Authentication** → **Settings**

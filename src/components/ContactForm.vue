@@ -129,6 +129,7 @@
 
 <script setup>
 import { ref, reactive, computed } from 'vue'
+import { supabase } from '../lib/supabase.js'
 
 // Form data
 const formData = reactive({
@@ -242,18 +243,36 @@ const handleSubmit = async () => {
   submitStatus.value = ''
 
   try {
-    // Simulate API call
-    console.log('📤 Sending form data:', formData)
+    console.log('📤 Sending form data to Supabase:', formData)
     
-    await new Promise(resolve => setTimeout(resolve, 2000)) // Simulate delay
+    // Submit to Supabase contact_messages table
+    const { data, error } = await supabase
+      .from('contact_messages')
+      .insert([{
+        name: formData.name.trim(),
+        email: formData.email.trim(),
+        phone: formData.phone.trim() || null,
+        subject: formData.subject,
+        message: formData.message.trim(),
+        status: 'new'
+      }])
+      .select()
     
-    // Mock successful submission
-    console.log('✅ Form submitted successfully!')
+    if (error) {
+      throw error
+    }
+    
+    console.log('✅ Contact message saved to Supabase:', data)
     submitStatus.value = '✅ Thank you! Your message has been sent successfully. We\'ll get back to you within 24 hours.'
     
     // Reset form
     Object.keys(formData).forEach(key => {
       formData[key] = ''
+    })
+    
+    // Clear validation errors
+    Object.keys(errors).forEach(key => {
+      errors[key] = ''
     })
     
     // Clear status after 8 seconds
@@ -263,7 +282,19 @@ const handleSubmit = async () => {
     
   } catch (error) {
     console.error('❌ Form submission error:', error)
-    submitStatus.value = 'Error: Failed to send message. Please try again later.'
+    
+    // Provide user-friendly error messages
+    let errorMessage = 'Failed to send message. Please try again later.'
+    
+    if (error.message.includes('duplicate key')) {
+      errorMessage = 'It looks like you\'ve already sent this message. Please wait before sending another.'
+    } else if (error.message.includes('network')) {
+      errorMessage = 'Network error. Please check your connection and try again.'
+    } else if (error.code === '23505') {
+      errorMessage = 'This message has already been submitted.'
+    }
+    
+    submitStatus.value = `Error: ${errorMessage}`
     
     setTimeout(() => {
       submitStatus.value = ''

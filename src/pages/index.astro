@@ -44,7 +44,7 @@ import Layout from '../layouts/Layout.astro';
 		<!-- Quick Links Section -->
 		<section class="text-center">
 			<h2 class="text-3xl font-semibold text-gray-800 mb-8">Explore Our Offerings</h2>
-			<div class="grid md:grid-cols-2 lg:grid-cols-5 gap-6 mb-8">
+			<div class="grid md:grid-cols-2 lg:grid-cols-6 gap-6 mb-8">
 				<a href="/products" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-4 px-6 rounded-lg transition duration-300 transform hover:scale-105">
 					View Menu
 				</a>
@@ -57,29 +57,41 @@ import Layout from '../layouts/Layout.astro';
 				<a href="/login" class="bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-4 px-6 rounded-lg transition duration-300 transform hover:scale-105">
 					Account
 				</a>
-				<a href="/order" class="bg-red-500 hover:bg-red-600 text-white font-semibold py-4 px-6 rounded-lg transition duration-300 transform hover:scale-105">
-					Order Now
+				<a href="/orders" class="bg-purple-500 hover:bg-purple-600 text-white font-semibold py-4 px-6 rounded-lg transition duration-300 transform hover:scale-105">
+					My Orders
+				</a>
+				<a href="/checkout" class="bg-red-500 hover:bg-red-600 text-white font-semibold py-4 px-6 rounded-lg transition duration-300 transform hover:scale-105">
+					Checkout
 				</a>
 			</div>
 			
-			<!-- Phase 4 Demo Links -->
-			<div class="grid md:grid-cols-2 gap-6">
+			<!-- Phase Progress Demo Links -->
+			<div class="grid md:grid-cols-3 gap-6">
 				<div class="bg-gray-100 rounded-lg p-6">
-					<h3 class="text-lg font-semibold text-gray-800 mb-4">🎯 Phase 3 Complete - Admin Features</h3>
+					<h3 class="text-lg font-semibold text-gray-800 mb-4">✅ Phase 3 Complete - Admin Features</h3>
 					<p class="text-gray-600 mb-4">
-						Experience the full CRUD functionality and state management implementation!
+						Full CRUD functionality and state management implementation!
 					</p>
 					<a href="/admin" class="bg-purple-500 hover:bg-purple-600 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105">
 						🔧 Admin Dashboard
 					</a>
 				</div>
 				<div class="bg-blue-100 rounded-lg p-6">
-					<h3 class="text-lg font-semibold text-gray-800 mb-4">🚀 Phase 4 In Progress - Backend Integration</h3>
+					<h3 class="text-lg font-semibold text-gray-800 mb-4">✅ Phase 4 Complete - Backend Integration</h3>
 					<p class="text-gray-600 mb-4">
 						User authentication, Supabase integration, and real database functionality!
 					</p>
 					<a href="/login" class="bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105">
 						🔐 User Authentication
+					</a>
+				</div>
+				<div class="bg-green-100 rounded-lg p-6">
+					<h3 class="text-lg font-semibold text-gray-800 mb-4">🚀 Phase 5 In Progress - E-commerce</h3>
+					<p class="text-gray-600 mb-4">
+						Shopping cart persistence, order placement, and checkout functionality!
+					</p>
+					<a href="/checkout" class="bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105">
+						🛒 Checkout System
 					</a>
 				</div>
 			</div>

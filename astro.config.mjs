@@ -8,7 +8,12 @@ import vue from '@astrojs/vue';
 // https://astro.build/config
 export default defineConfig({
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
+    resolve: {
+      alias: {
+        vue: 'vue/dist/vue.esm-bundler.js'
+      }
+    }
   },
 
   integrations: [vue()]

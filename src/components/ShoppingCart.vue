@@ -142,8 +142,9 @@ const clearCart = () => {
 
 const checkout = () => {
   console.log('🚀 Proceeding to checkout with items:', cartStore.items)
-  alert(`🚀 Checkout initiated!\n\nItems: ${cartStore.itemCount}\nTotal: $${cartStore.totalPrice.toFixed(2)}\n\n(This is a demo - real checkout coming in Phase 4!)`)
   cartStore.closeCart()
+  // Navigate to checkout page
+  window.location.href = '/checkout'
 }
 </script>
 

@@ -2,9 +2,9 @@
 
 A modern, high-performance e-commerce platform built with cutting-edge web technologies, serving as a storefront for a premium sandwich shop.
 
-## 🚀 Current Status: Phase 3 Complete
+## 🚀 Current Status: Phase 5 In Progress
 
-### ✅ What's Been Implemented (Phases 1-3)
+### ✅ What's Been Implemented (Phases 1-5)
 
 - **Modern Tech Stack Setup**: Astro.js + Vue.js + Tailwind CSS + Pinia
 - **Responsive Design**: Mobile-first, beautiful UI
@@ -27,12 +27,32 @@ A modern, high-performance e-commerce platform built with cutting-edge web techn
   - `ProductsGrid.vue` - Dynamic product display with filtering
   - `AdminDashboard.vue` - Complete CRUD interface for product management
 - **Enhanced User Experience**: Real cart functionality, live search, persistent data
+- **Phase 4 - Backend Integration (Complete)**:
+  - ✅ **Supabase Setup**: Client configuration and environment setup
+  - ✅ **Database Schema**: PostgreSQL tables with RLS policies
+  - ✅ **Authentication System**: Complete user auth with Pinia store
+  - ✅ **Auth Components**: Login/signup forms and user profile management
+  - ✅ **Real User Accounts**: Live admin and customer accounts with role-based permissions
+  - ✅ **Admin Dashboard Integration**: Connected to real Supabase database
+  - ✅ **Contact Form Integration**: Form connected to Supabase (RLS issue pending)
+  - ⚠️ **Known Issue**: Contact form RLS policy needs refinement (documented for future learning)
+- **Phase 5 - E-commerce Functionality (In Progress)**:
+  - ✅ **Shopping Cart Persistence**: Database-backed cart for authenticated users
+  - ✅ **Checkout System**: Complete order placement workflow with validation
+  - ✅ **Order Management**: User order history and tracking interface
+  - ✅ **Email Notifications**: Order confirmation emails via serverless functions
+  - ✅ **Payment UI**: Credit card and cash on delivery options
+  - 🔄 **Pending**: File upload integration (Supabase Storage)
+  - 🔄 **Pending**: Live payment processing (Stripe integration)
+  - 🔄 **Pending**: Production deployment (Vercel)
 
 ### 🛠️ Tech Stack
 
 - **Frontend Framework**: Astro.js (Static Site Generation) + Vue.js 3 (Interactivity)
 - **UI Components**: Vue.js with Composition API
 - **Styling**: Tailwind CSS (Utility-first CSS framework)
+- **Backend Services**: Supabase (PostgreSQL, Auth, Real-time)
+- **State Management**: Pinia (Vue.js store)
 - **Development**: Node.js, npm
 - **Version Control**: Git
 
@@ -93,25 +113,54 @@ src/
 ├── stores/                  # Pinia state management
 │   ├── pinia.js            # Pinia setup and exports
 │   ├── cartStore.js        # Shopping cart state
-│   └── productsStore.js    # Products and filtering state
+│   ├── productsStore.js    # Products and filtering state
+│   └── authStore.js        # Authentication and user state
 ├── styles/
 │   └── global.css           # Global Tailwind CSS
-└── docs/                    # Phase documentation
+├── lib/
+│   └── supabase.js         # Supabase client configuration
+└── docs/                    # Documentation and SQL scripts
     ├── phase1.md           # Phase 1 development log
     ├── phase2.md           # Phase 2 development log
-    └── phase3.md           # Phase 3 development log
+    ├── phase3.md           # Phase 3 development log
+    ├── supabase-setup.md   # Supabase setup guide
+    ├── database-schema.sql # Database schema and RLS policies
+    ├── email-templates.md  # Authentication email templates
+    └── contact-form-troubleshooting.md # RLS troubleshooting guide
 ```
 
-## 🎯 Next Steps (Phase 4)
+## 🎯 Current Phase 5 Progress
 
-The next phase will focus on backend integration and authentication:
+E-commerce functionality and deployment:
 
-- [ ] Integrate Supabase for backend services
-- [ ] Add user authentication (sign up, login, logout)
-- [ ] Replace localStorage with Supabase database
-- [ ] Implement Row Level Security (RLS) policies
-- [ ] Add file upload for product images
-- [ ] Create order management system
+- [x] **Shopping Cart Enhancement**: Database persistence for authenticated users
+- [x] **Checkout System**: Complete order placement workflow
+- [x] **Order Management**: User order history and tracking
+- [x] **Email Notifications**: Order confirmation emails via serverless functions
+- [x] **Payment UI**: Credit card and cash on delivery interfaces
+- [x] **Navigation Updates**: Checkout and orders page integration
+- [ ] **File Upload Integration**: Supabase Storage for product images
+- [ ] **Live Payment Processing**: Stripe integration with webhooks
+- [ ] **Production Deployment**: Vercel deployment with environment management
+
+## 🚨 Known Issues & Learning Notes
+
+### Contact Form RLS Policy Issue
+**Status**: Documented for future learning  
+**Error**: `403 Forbidden - new row violates row-level security policy for table "contact_messages"`
+
+**What we learned:**
+- RLS policies can be complex and require careful permission management
+- Anonymous users (`anon` role) need explicit INSERT permissions
+- Schema permissions must be granted before table permissions
+- Multiple solutions exist but require deeper PostgreSQL/RLS understanding
+
+**Resources created:**
+- `docs/fix-contact-rls-final.sql` - Comprehensive fix script
+- `docs/contact-form-troubleshooting.md` - Detailed troubleshooting guide
+- Multiple Stack Overflow solutions researched and documented
+
+**Next steps**: Return to this issue after gaining more RLS experience in Phase 5
 
 ## 📋 Learning Objectives Completed
 
@@ -137,10 +186,19 @@ The next phase will focus on backend integration and authentication:
 - [x] **Shopping Cart**: Complete cart functionality with quantity management
 - [x] **Admin Interface**: Product management dashboard with form validation
 
+**Phase 4 (In Progress):**
+- [x] **Supabase Integration**: Backend services setup and configuration
+- [x] **PostgreSQL Database**: Schema design with tables and relationships
+- [x] **Authentication System**: Complete user auth with role-based permissions
+- [x] **Row Level Security**: RLS policies for data protection (learning in progress)
+- [x] **Real Database Operations**: Admin dashboard connected to Supabase
+- [x] **User Management**: Live accounts with admin/customer roles
+- [x] **State Management Evolution**: Pinia stores enhanced for backend integration
+
 ## 🔮 Future Phases
 
-- **Phase 4**: Backend integration with Supabase
-- **Phase 5**: E-commerce functionality and deployment
+- **Phase 4**: Backend integration with Supabase (95% complete - RLS learning pending)
+- **Phase 5**: E-commerce functionality, file uploads, and deployment
 
 ## 🤝 Contributing
 
@@ -152,8 +210,8 @@ This project is for educational purposes as part of a full-stack development lea
 
 ---
 
-**Current Phase**: 3/5 - ✅ State Management with Pinia and CRUD Operations Complete
-**Next Milestone**: Backend Integration with Supabase
+**Current Phase**: 5/5 - 🔄 E-commerce Functionality (85% Complete)
+**Next Milestone**: Production deployment with live payment processing and file uploads
 
 ```sh
 npm create astro@latest -- --template minimal

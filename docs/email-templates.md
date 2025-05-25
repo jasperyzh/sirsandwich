@@ -58,7 +58,7 @@ This document contains all the email templates for Supabase authentication. Copy
         
         <p>Thank you for joining Sirsandwich Shop! We're excited to have you as part of our sandwich-loving community.</p>
         
-        <p>To get started and secure your account, please confirm your email address by clicking the button below:</p>
+        <p>To get started and secure your account, please confirm your email address using the link below:</p>
         
         <div style="text-align: center;">
             <a href="{{ .ConfirmationURL }}" class="button">Confirm Email Address</a>
@@ -79,7 +79,7 @@ This document contains all the email templates for Supabase authentication. Copy
         
         <p><small>If you didn't create an account with us, you can safely ignore this email. The link will expire in 24 hours for security.</small></p>
         
-        <p><small>If the button doesn't work, copy and paste this link into your browser:<br>
+        <p><small>If you're having trouble with the link above, you can access this URL directly in your browser:<br>
         <a href="{{ .ConfirmationURL }}">{{ .ConfirmationURL }}</a></small></p>
     </div>
     
@@ -127,7 +127,7 @@ This document contains all the email templates for Supabase authentication. Copy
         
         <p>You've been invited to join Sirsandwich Shop, where we craft premium sandwiches with the finest ingredients, made fresh daily!</p>
         
-        <p>Click the button below to accept your invitation and create your account:</p>
+        <p>Use the secure link below to accept your invitation and create your account:</p>
         
         <div style="text-align: center;">
             <a href="{{ .ConfirmationURL }}" class="button">Accept Invitation</a>
@@ -148,7 +148,7 @@ This document contains all the email templates for Supabase authentication. Copy
         
         <p><small>This invitation was sent to {{ .Email }}. If you weren't expecting this invitation, you can safely ignore this email.</small></p>
         
-        <p><small>If the button doesn't work, copy and paste this link into your browser:<br>
+        <p><small>If you're having trouble with the link above, you can access this URL directly in your browser:<br>
         <a href="{{ .ConfirmationURL }}">{{ .ConfirmationURL }}</a></small></p>
     </div>
     
@@ -195,10 +195,10 @@ This document contains all the email templates for Supabase authentication. Copy
     <div class="content">
         <h2>Sign in to Sirsandwich Shop 🔐</h2>
         
-        <p>Click the button below to securely sign in to your Sirsandwich Shop account. No password required!</p>
+        <p>Use the secure link below to access your Sirsandwich Shop account without entering your password.</p>
         
         <div style="text-align: center;">
-            <a href="{{ .ConfirmationURL }}" class="button">Sign In Securely</a>
+            <a href="{{ .ConfirmationURL }}" class="button">Access Your Account</a>
         </div>
         
         <div class="security-note">
@@ -219,7 +219,7 @@ This document contains all the email templates for Supabase authentication. Copy
         
         <p><small>If you didn't request this sign-in link, you can safely ignore this email. Someone may have entered your email address by mistake.</small></p>
         
-        <p><small>If the button doesn't work, copy and paste this link into your browser:<br>
+        <p><small>If you're having trouble with the link above, you can access this URL directly in your browser:<br>
         <a href="{{ .ConfirmationURL }}">{{ .ConfirmationURL }}</a></small></p>
     </div>
     
@@ -266,7 +266,7 @@ This document contains all the email templates for Supabase authentication. Copy
     <div class="content">
         <h2>Confirm Email Address Change 🔄</h2>
         
-        <p>You've requested to change your email address for your Sirsandwich Shop account. Please confirm this change by clicking the button below:</p>
+        <p>You've requested to change your email address for your Sirsandwich Shop account. Please confirm this change using the secure link below:</p>
         
         <div style="text-align: center;">
             <a href="{{ .ConfirmationURL }}" class="button">Confirm Email Change</a>
@@ -290,7 +290,7 @@ This document contains all the email templates for Supabase authentication. Copy
         
         <p><small>If you didn't request this email change, please ignore this email and contact our support team immediately. Your current email address will remain unchanged.</small></p>
         
-        <p><small>If the button doesn't work, copy and paste this link into your browser:<br>
+        <p><small>If you're having trouble with the link above, you can access this URL directly in your browser:<br>
         <a href="{{ .ConfirmationURL }}">{{ .ConfirmationURL }}</a></small></p>
     </div>
     
@@ -337,10 +337,10 @@ This document contains all the email templates for Supabase authentication. Copy
     <div class="content">
         <h2>Reset Your Password 🔑</h2>
         
-        <p>You've requested to reset your password for your Sirsandwich Shop account. Click the button below to create a new password:</p>
+        <p>You've requested to reset your password for your Sirsandwich Shop account. Use the secure link below to create a new password:</p>
         
         <div style="text-align: center;">
-            <a href="{{ .ConfirmationURL }}" class="button">Reset Password</a>
+            <a href="{{ .ConfirmationURL }}" class="button">Create New Password</a>
         </div>
         
         <p><strong>Account Email:</strong> {{ .Email }}</p>
@@ -362,7 +362,7 @@ This document contains all the email templates for Supabase authentication. Copy
         
         <p><small>If you didn't request a password reset, you can safely ignore this email. Your password will remain unchanged. If you're concerned about your account security, please contact our support team.</small></p>
         
-        <p><small>If the button doesn't work, copy and paste this link into your browser:<br>
+        <p><small>If you're having trouble with the link above, you can access this URL directly in your browser:<br>
         <a href="{{ .ConfirmationURL }}">{{ .ConfirmationURL }}</a></small></p>
     </div>
     
@@ -402,17 +402,16 @@ This document contains all the email templates for Supabase authentication. Copy
 <body>
     <div class="header">
         <div class="shield-icon">🛡️</div>
-        <h1>Identity Verification</h1>
-        <p>Confirm your identity</p>
+        <h1>Confirm you're you</h1>
     </div>
     
     <div class="content">
-        <h2>Reauthentication Required 🔐</h2>
+        <h2>confirming you 🔐</h2>
         
-        <p>For your security, we need to verify your identity before proceeding with this sensitive action on your Sirsandwich Shop account.</p>
+        <p>we need to confirm you're the account holder before proceeding with this action on your Sirsandwich Shop account.</p>
         
         <div style="text-align: center;">
-            <a href="{{ .ConfirmationURL }}" class="button">Verify Identity</a>
+            <a href="{{ .ConfirmationURL }}" class="button">Verify it's me!</a>
         </div>
         
         <div class="security-alert">
@@ -422,21 +421,11 @@ This document contains all the email templates for Supabase authentication. Copy
         
         <p><strong>Account Email:</strong> {{ .Email }}</p>
         
-        <p>After verification, you'll be able to:</p>
-        <ul>
-            <li>✅ Complete your requested action securely</li>
-            <li>🔐 Maintain full account protection</li>
-            <li>📱 Continue using all account features</li>
-            <li>🛡️ Keep your personal information safe</li>
-        </ul>
-        
-        <p><strong>This verification link expires in 15 minutes</strong> for maximum security.</p>
+        <p><strong>This link expires in 15 minutes</strong>, just to be safe.</p>
         
         <hr style="margin: 30px 0; border: none; border-top: 1px solid #ddd;">
         
-        <p><small>If you didn't initiate this action, please ignore this email and consider changing your password. If you're concerned about your account security, contact our support team immediately.</small></p>
-        
-        <p><small>If the button doesn't work, copy and paste this link into your browser:<br>
+        <p><small>If you're having trouble with the link above, you can access this URL directly in your browser:<br>
         <a href="{{ .ConfirmationURL }}">{{ .ConfirmationURL }}</a></small></p>
     </div>
     

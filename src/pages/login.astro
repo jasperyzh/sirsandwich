@@ -14,7 +14,7 @@ import Layout from '../layouts/Layout.astro';
       </div>
 
       <!-- Auth Component Container -->
-      <div id="auth-app" class="max-w-4xl mx-auto">
+      <div id="auth-app">
         <!-- Vue components will be mounted here -->
       </div>
     </div>
@@ -24,85 +24,13 @@ import Layout from '../layouts/Layout.astro';
 <script>
   import { createApp } from 'vue'
   import { pinia } from '../stores/pinia.js'
-  import { useAuthStore } from '../stores/authStore.js'
-  import AuthForm from '../components/AuthForm.vue'
-  import UserProfile from '../components/UserProfile.vue'
+  import LoginApp from '../components/LoginApp.vue'
 
-  // Create Vue app with inline component
-  const app = createApp({
-    components: {
-      AuthForm,
-      UserProfile
-    },
-    setup() {
-      const authStore = useAuthStore()
-      
-      // Initialize auth store
-      authStore.initialize()
-
-      return {
-        authStore
-      }
-    },
-    methods: {
-      handleAuthSuccess(data) {
-        console.log('🎉 Authentication successful:', data.type)
-      },
-      handleSignOut() {
-        console.log('👋 User signed out')
-      },
-      handleViewOrders() {
-        console.log('📋 Redirecting to orders page')
-        window.location.href = '/orders'
-      },
-      handleBrowseProducts() {
-        console.log('🛒 Redirecting to products page')
-        window.location.href = '/products'
-      },
-      handleAdminDashboard() {
-        console.log('⚙️ Redirecting to admin dashboard')
-        window.location.href = '/admin'
-      }
-    },
-    template: `
-      <div class="max-w-4xl mx-auto">
-        <!-- Loading State -->
-        <div v-if="authStore.loading && !authStore.user" class="text-center py-12">
-          <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto"></div>
-          <p class="text-gray-600 mt-4">Loading your account...</p>
-        </div>
-
-        <!-- Authentication Form (when not logged in) -->
-        <AuthForm 
-          v-else-if="!authStore.isAuthenticated"
-          @auth-success="handleAuthSuccess"
-        />
-
-        <!-- User Profile (when logged in) -->
-        <UserProfile 
-          v-else
-          @signed-out="handleSignOut"
-          @view-orders="handleViewOrders"
-          @browse-products="handleBrowseProducts"
-          @admin-dashboard="handleAdminDashboard"
-        />
-      </div>
-    `
-  })
+  // Create Vue app with the LoginApp component
+  const app = createApp(LoginApp)
 
   app.use(pinia)
   app.mount('#auth-app')
 </script>
 
-<style>
-  /* Loading animation */
-  @keyframes spin {
-    to {
-      transform: rotate(360deg);
-    }
-  }
-  
-  .animate-spin {
-    animation: spin 1s linear infinite;
-  }
-</style> 
+ 

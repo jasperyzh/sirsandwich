@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import AdminDashboard from '../components/AdminDashboard.vue';
+import SupabaseAdminDashboard from '../components/SupabaseAdminDashboard.vue';
 ---
 
 <Layout title="Admin Dashboard - Sirsandwich Shop" description="Admin interface for managing products and orders at Sirsandwich Shop">
@@ -11,15 +11,15 @@ import AdminDashboard from '../components/AdminDashboard.vue';
       <p class="text-xl text-gray-600 max-w-3xl mx-auto">
         Manage your sandwich shop products, inventory, and settings
       </p>
-      <div class="mt-6 bg-orange-50 rounded-lg p-4 max-w-2xl mx-auto">
-        <p class="text-sm text-orange-800">
-          <strong>⚠️ Demo Mode:</strong> This is a demonstration admin interface. In production, this would require authentication.
+      <div class="mt-6 bg-green-50 rounded-lg p-4 max-w-2xl mx-auto">
+        <p class="text-sm text-green-800">
+          <strong>🔐 Live Database:</strong> This admin interface is now connected to your Supabase database with real authentication and permissions.
         </p>
       </div>
     </header>
 
     <!-- Admin Dashboard Component -->
-    <AdminDashboard client:visible />
+    <SupabaseAdminDashboard client:visible />
 
     <!-- Navigation Links -->
     <div class="text-center mt-12 space-x-4">
