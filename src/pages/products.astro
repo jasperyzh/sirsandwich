@@ -1,55 +1,87 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import ProductCard from '../components/ProductCard.vue';
+import CategoryFilter from '../components/CategoryFilter.vue';
 
-// Hardcoded sample products for Phase 1
+// Enhanced sample products with detailed specs for Phase 2
 const products = [
   {
     id: 1,
     name: "The Classic Club",
-    description: "Turkey, ham, bacon, lettuce, tomato, mayo on toasted white bread",
+    description: "A timeless favorite featuring layers of fresh turkey, smoky ham, crispy bacon, crisp lettuce, ripe tomato, and creamy mayo on toasted white bread",
     price: 12.99,
     image: "🥪",
-    category: "Classics"
+    category: "Classics",
+    specs: {
+      calories: 520,
+      allergens: ["gluten", "dairy"],
+      prepTime: "5-7 minutes"
+    }
   },
   {
     id: 2,
     name: "Italian Supreme",
-    description: "Salami, pepperoni, ham, provolone, lettuce, tomato, Italian dressing",
+    description: "A Mediterranean masterpiece with premium salami, spicy pepperoni, savory ham, melted provolone, fresh lettuce, ripe tomato, and zesty Italian dressing",
     price: 14.99,
     image: "🥙",
-    category: "Gourmet"
+    category: "Gourmet",
+    specs: {
+      calories: 610,
+      allergens: ["gluten", "dairy"],
+      prepTime: "6-8 minutes"
+    }
   },
   {
     id: 3,
     name: "Veggie Delight",
-    description: "Fresh vegetables, avocado, hummus, sprouts on whole grain bread",
+    description: "A garden-fresh creation with crisp vegetables, creamy avocado, protein-rich hummus, fresh sprouts, and our special herb blend on whole grain bread",
     price: 10.99,
     image: "🥗",
-    category: "Vegetarian"
+    category: "Vegetarian",
+    specs: {
+      calories: 380,
+      allergens: ["gluten"],
+      prepTime: "4-6 minutes"
+    }
   },
   {
     id: 4,
     name: "BBQ Pulled Pork",
-    description: "Slow-cooked pulled pork, BBQ sauce, coleslaw, pickles",
+    description: "Tender slow-cooked pulled pork smothered in our signature BBQ sauce, topped with creamy coleslaw and tangy pickles on a brioche bun",
     price: 13.99,
     image: "🍖",
-    category: "BBQ"
+    category: "BBQ",
+    specs: {
+      calories: 580,
+      allergens: ["gluten", "dairy"],
+      prepTime: "7-9 minutes"
+    }
   },
   {
     id: 5,
     name: "Grilled Chicken Caesar",
-    description: "Grilled chicken, romaine, parmesan, caesar dressing, croutons",
+    description: "Perfectly grilled chicken breast with crisp romaine lettuce, aged parmesan cheese, creamy caesar dressing, and crunchy croutons",
     price: 11.99,
     image: "🍗",
-    category: "Chicken"
+    category: "Chicken",
+    specs: {
+      calories: 450,
+      allergens: ["gluten", "dairy", "eggs"],
+      prepTime: "6-8 minutes"
+    }
   },
   {
     id: 6,
     name: "Tuna Melt",
-    description: "Fresh tuna salad, melted cheddar, tomato on sourdough",
+    description: "Fresh albacore tuna salad with melted aged cheddar cheese and ripe tomato slices on golden toasted sourdough bread",
     price: 10.49,
     image: "🐟",
-    category: "Seafood"
+    category: "Seafood",
+    specs: {
+      calories: 420,
+      allergens: ["gluten", "dairy", "fish"],
+      prepTime: "5-7 minutes"
+    }
   }
 ];
 
@@ -64,52 +96,50 @@ const categories = ["All", "Classics", "Gourmet", "Vegetarian", "BBQ", "Chicken"
       <p class="text-xl text-gray-600 max-w-3xl mx-auto">
         Discover our carefully crafted sandwiches, each made with the finest ingredients and attention to detail
       </p>
+      <div class="mt-6 bg-blue-50 rounded-lg p-4 max-w-2xl mx-auto">
+        <p class="text-sm text-blue-800">
+          <strong>🆕 New!</strong> Interactive menu cards - click "Read more" to see details and "Add to Cart" to try our ordering system!
+        </p>
+      </div>
     </header>
 
-    <!-- Category Filter (Static for now) -->
-    <section class="mb-8">
-      <div class="flex flex-wrap justify-center gap-4">
-        {categories.map(category => (
-          <button class="px-4 py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition duration-300 text-gray-700 font-medium">
-            {category}
-          </button>
-        ))}
-      </div>
-    </section>
+    <!-- Interactive Category Filter -->
+    <CategoryFilter 
+      categories={categories}
+      products={products}
+      client:visible
+    />
 
-    <!-- Products Grid -->
+    <!-- Products Grid with Vue Components -->
     <section class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
       {products.map(product => (
-        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-          <!-- Product Image Placeholder -->
-          <div class="bg-gray-200 h-48 flex items-center justify-center text-6xl">
-            {product.image}
-          </div>
-          
-          <!-- Product Info -->
-          <div class="p-6">
-            <div class="flex justify-between items-start mb-2">
-              <h3 class="text-xl font-semibold text-gray-800">{product.name}</h3>
-              <span class="text-sm bg-blue-100 text-blue-800 px-2 py-1 rounded-full">
-                {product.category}
-              </span>
-            </div>
-            
-            <p class="text-gray-600 mb-4 text-sm leading-relaxed">
-              {product.description}
-            </p>
-            
-            <div class="flex justify-between items-center">
-              <span class="text-2xl font-bold text-green-600">
-                ${product.price}
-              </span>
-              <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition duration-300 transform hover:scale-105">
-                Add to Cart
-              </button>
-            </div>
-          </div>
-        </div>
+        <ProductCard 
+          product={product} 
+          client:visible
+        />
       ))}
+    </section>
+
+    <!-- Interactive Demo Section -->
+    <section class="bg-gradient-to-r from-blue-50 to-green-50 rounded-lg p-8 text-center mb-8">
+      <h2 class="text-2xl font-semibold text-gray-800 mb-4">🎯 Phase 2 Features Demo</h2>
+      <div class="grid md:grid-cols-3 gap-6 text-left">
+        <div class="bg-white p-4 rounded-lg shadow-sm">
+          <h3 class="font-semibold text-blue-700 mb-2">🔄 Interactive Cards</h3>
+          <p class="text-sm text-gray-600">Click "Read more" to toggle detailed descriptions and view product specs!</p>
+        </div>
+        <div class="bg-white p-4 rounded-lg shadow-sm">
+          <h3 class="font-semibold text-green-700 mb-2">🛒 Mock Cart Actions</h3>
+          <p class="text-sm text-gray-600">Try "Add to Cart" - it shows loading states and logs to console!</p>
+        </div>
+        <div class="bg-white p-4 rounded-lg shadow-sm">
+          <h3 class="font-semibold text-purple-700 mb-2">📋 View Details</h3>
+          <p class="text-sm text-gray-600">Click "View Details" for a preview of product information modal!</p>
+        </div>
+      </div>
+      <p class="text-sm text-gray-600 mt-4">
+        Open your browser's developer console (F12) to see the interactive logging!
+      </p>
     </section>
 
     <!-- Info Banner -->
