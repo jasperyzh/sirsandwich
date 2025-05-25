@@ -1,0 +1,77 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Order Now - Sirsandwich Shop" description="Place your order for fresh, delicious sandwiches from Sirsandwich Shop">
+  <main class="container mx-auto px-4 py-8">
+    <!-- Header -->
+    <header class="text-center mb-12">
+      <h1 class="text-4xl font-bold text-gray-800 mb-4">Order Now</h1>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Ready to satisfy your cravings? Start your order and we'll have it ready in no time!
+      </p>
+    </header>
+
+    <!-- Coming Soon Banner -->
+    <section class="bg-yellow-50 border border-yellow-200 rounded-lg p-8 text-center mb-8">
+      <div class="text-6xl mb-4">🚧</div>
+      <h2 class="text-3xl font-semibold text-yellow-800 mb-4">Online Ordering Coming Soon!</h2>
+      <p class="text-yellow-700 mb-6 text-lg">
+        We're working hard to bring you the best online ordering experience. 
+        In the meantime, feel free to call us or visit our shop to place your order.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="tel:+1234567890" class="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-3 px-6 rounded-lg transition duration-300">
+          📞 Call (123) 456-7890
+        </a>
+        <a href="/contact" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg transition duration-300">
+          📍 Visit Our Shop
+        </a>
+      </div>
+    </section>
+
+    <!-- Current Options -->
+    <section class="bg-white rounded-lg shadow-md p-8 mb-8">
+      <h2 class="text-3xl font-semibold text-gray-800 mb-6">How to Order</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="text-4xl mb-4">📞</div>
+          <h3 class="text-xl font-semibold mb-3">Call Ahead</h3>
+          <p class="text-gray-600 mb-4">
+            Call us at (123) 456-7890 to place your order. We'll have it ready for pickup or arrange delivery.
+          </p>
+          <p class="text-sm text-gray-500">Usually ready in 15-20 minutes</p>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl mb-4">🏪</div>
+          <h3 class="text-xl font-semibold mb-3">Walk-In Orders</h3>
+          <p class="text-gray-600 mb-4">
+            Visit our shop and order at the counter. Perfect if you want to see all our fresh ingredients.
+          </p>
+          <p class="text-sm text-gray-500">Made fresh while you wait</p>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl mb-4">🚚</div>
+          <h3 class="text-xl font-semibold mb-3">Delivery Available</h3>
+          <p class="text-gray-600 mb-4">
+            We offer local delivery within 5 miles of our shop. Call to check if we deliver to your area.
+          </p>
+          <p class="text-sm text-gray-500">$3 delivery fee</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Links -->
+    <section class="text-center">
+      <h2 class="text-2xl font-semibold text-gray-800 mb-6">Explore Our Menu</h2>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/products" class="bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-lg transition duration-300">
+          View Full Menu
+        </a>
+        <a href="/" class="bg-gray-500 hover:bg-gray-600 text-white font-semibold py-3 px-6 rounded-lg transition duration-300">
+          ← Back to Home
+        </a>
+      </div>
+    </section>
+  </main>
+</Layout> 

@@ -1,0 +1,133 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Hardcoded sample products for Phase 1
+const products = [
+  {
+    id: 1,
+    name: "The Classic Club",
+    description: "Turkey, ham, bacon, lettuce, tomato, mayo on toasted white bread",
+    price: 12.99,
+    image: "🥪",
+    category: "Classics"
+  },
+  {
+    id: 2,
+    name: "Italian Supreme",
+    description: "Salami, pepperoni, ham, provolone, lettuce, tomato, Italian dressing",
+    price: 14.99,
+    image: "🥙",
+    category: "Gourmet"
+  },
+  {
+    id: 3,
+    name: "Veggie Delight",
+    description: "Fresh vegetables, avocado, hummus, sprouts on whole grain bread",
+    price: 10.99,
+    image: "🥗",
+    category: "Vegetarian"
+  },
+  {
+    id: 4,
+    name: "BBQ Pulled Pork",
+    description: "Slow-cooked pulled pork, BBQ sauce, coleslaw, pickles",
+    price: 13.99,
+    image: "🍖",
+    category: "BBQ"
+  },
+  {
+    id: 5,
+    name: "Grilled Chicken Caesar",
+    description: "Grilled chicken, romaine, parmesan, caesar dressing, croutons",
+    price: 11.99,
+    image: "🍗",
+    category: "Chicken"
+  },
+  {
+    id: 6,
+    name: "Tuna Melt",
+    description: "Fresh tuna salad, melted cheddar, tomato on sourdough",
+    price: 10.49,
+    image: "🐟",
+    category: "Seafood"
+  }
+];
+
+const categories = ["All", "Classics", "Gourmet", "Vegetarian", "BBQ", "Chicken", "Seafood"];
+---
+
+<Layout title="Our Menu - Sirsandwich Shop" description="Browse our delicious selection of gourmet sandwiches, made fresh daily with premium ingredients">
+  <main class="container mx-auto px-4 py-8">
+    <!-- Header -->
+    <header class="text-center mb-12">
+      <h1 class="text-4xl font-bold text-gray-800 mb-4">Our Menu</h1>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Discover our carefully crafted sandwiches, each made with the finest ingredients and attention to detail
+      </p>
+    </header>
+
+    <!-- Category Filter (Static for now) -->
+    <section class="mb-8">
+      <div class="flex flex-wrap justify-center gap-4">
+        {categories.map(category => (
+          <button class="px-4 py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition duration-300 text-gray-700 font-medium">
+            {category}
+          </button>
+        ))}
+      </div>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+      {products.map(product => (
+        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+          <!-- Product Image Placeholder -->
+          <div class="bg-gray-200 h-48 flex items-center justify-center text-6xl">
+            {product.image}
+          </div>
+          
+          <!-- Product Info -->
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="text-xl font-semibold text-gray-800">{product.name}</h3>
+              <span class="text-sm bg-blue-100 text-blue-800 px-2 py-1 rounded-full">
+                {product.category}
+              </span>
+            </div>
+            
+            <p class="text-gray-600 mb-4 text-sm leading-relaxed">
+              {product.description}
+            </p>
+            
+            <div class="flex justify-between items-center">
+              <span class="text-2xl font-bold text-green-600">
+                ${product.price}
+              </span>
+              <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition duration-300 transform hover:scale-105">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      ))}
+    </section>
+
+    <!-- Info Banner -->
+    <section class="bg-blue-50 rounded-lg p-8 text-center mb-8">
+      <h2 class="text-2xl font-semibold text-gray-800 mb-4">Custom Orders Welcome!</h2>
+      <p class="text-gray-600 mb-4">
+        Don't see exactly what you're craving? We love creating custom sandwiches tailored to your taste preferences.
+      </p>
+      <a href="/contact" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded-lg transition duration-300">
+        Ask About Custom Orders
+      </a>
+    </section>
+
+    <!-- Back to Home -->
+    <div class="text-center">
+      <a href="/" class="bg-gray-500 hover:bg-gray-600 text-white font-semibold py-3 px-6 rounded-lg transition duration-300">
+        ← Back to Home
+      </a>
+    </div>
+  </main>
+</Layout> 

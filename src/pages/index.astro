@@ -1,0 +1,63 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Sirsandwich Shop - Home" description="Welcome to Sirsandwich Shop - Premium sandwiches made fresh daily with the finest ingredients">
+	<main class="container mx-auto px-4 py-8">
+		<!-- Header Section -->
+		<header class="text-center mb-12">
+			<h1 class="text-5xl font-bold text-gray-800 mb-4">🥪 Sirsandwich Shop</h1>
+			<p class="text-xl text-gray-600 max-w-2xl mx-auto">
+				Premium sandwiches crafted with the finest ingredients, made fresh daily for sandwich enthusiasts who appreciate quality and flavor.
+			</p>
+		</header>
+
+		<!-- Hero Section -->
+		<section class="bg-white rounded-lg shadow-md p-8 mb-12">
+			<div class="text-center">
+				<h2 class="text-3xl font-semibold text-gray-800 mb-6">Welcome to Our Shop</h2>
+				<p class="text-lg text-gray-600 mb-8 max-w-3xl mx-auto">
+					From classic favorites to innovative creations, every sandwich is a masterpiece. 
+					We use only the freshest bread, premium meats, artisanal cheeses, and crisp vegetables 
+					to create an unforgettable dining experience.
+				</p>
+				<div class="grid md:grid-cols-3 gap-8">
+					<div class="text-center">
+						<div class="text-4xl mb-4">🍞</div>
+						<h3 class="text-xl font-semibold mb-2">Fresh Bread Daily</h3>
+						<p class="text-gray-600">Baked fresh every morning using traditional methods</p>
+					</div>
+					<div class="text-center">
+						<div class="text-4xl mb-4">🥩</div>
+						<h3 class="text-xl font-semibold mb-2">Premium Ingredients</h3>
+						<p class="text-gray-600">Only the finest meats, cheeses, and vegetables</p>
+					</div>
+					<div class="text-center">
+						<div class="text-4xl mb-4">⚡</div>
+						<h3 class="text-xl font-semibold mb-2">Quick Service</h3>
+						<p class="text-gray-600">Fast preparation without compromising quality</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Quick Links Section -->
+		<section class="text-center">
+			<h2 class="text-3xl font-semibold text-gray-800 mb-8">Explore Our Offerings</h2>
+			<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+				<a href="/products" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-4 px-6 rounded-lg transition duration-300 transform hover:scale-105">
+					View Menu
+				</a>
+				<a href="/about" class="bg-green-500 hover:bg-green-600 text-white font-semibold py-4 px-6 rounded-lg transition duration-300 transform hover:scale-105">
+					About Us
+				</a>
+				<a href="/contact" class="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-4 px-6 rounded-lg transition duration-300 transform hover:scale-105">
+					Contact
+				</a>
+				<a href="/order" class="bg-red-500 hover:bg-red-600 text-white font-semibold py-4 px-6 rounded-lg transition duration-300 transform hover:scale-105">
+					Order Now
+				</a>
+			</div>
+		</section>
+	</main>
+</Layout>
