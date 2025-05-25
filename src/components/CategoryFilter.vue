@@ -43,86 +43,45 @@
       </button>
     </div>
     
-    <!-- Phase 3 Notice -->
-    <div class="text-center mt-6 bg-yellow-50 rounded-lg p-4 max-w-2xl mx-auto">
-      <p class="text-sm text-yellow-800">
-        <strong>💡 Phase 2 Demo:</strong> This filter shows visual feedback but doesn't actually filter products yet. 
-        <br>Full filtering functionality coming in Phase 3!
+    <!-- Phase 3 Implementation -->
+    <div class="text-center mt-6 bg-green-50 rounded-lg p-4 max-w-2xl mx-auto">
+      <p class="text-sm text-green-800">
+        <strong>✅ Phase 3 Complete:</strong> This filter now uses Pinia state management and actually filters the products below!
       </p>
     </div>
   </section>
 </template>
 
 <script setup>
-import { ref, computed, defineProps, defineEmits } from 'vue'
+import { computed, createApp } from 'vue'
+import { useProductsStore } from '../stores/productsStore.js'
+import { pinia } from '../stores/pinia.js'
 
-// Props
-const props = defineProps({
-  categories: {
-    type: Array,
-    required: true,
-    default: () => []
-  },
-  products: {
-    type: Array,
-    required: true,
-    default: () => []
-  }
-})
+// Initialize Pinia and use the products store
+const app = createApp({})
+app.use(pinia)
+const productsStore = useProductsStore()
 
-// Emits
-const emit = defineEmits(['category-changed'])
-
-// Reactive state
-const selectedCategory = ref('All')
-
-// Computed properties
-const totalProducts = computed(() => props.products.length)
-
-const filteredCount = computed(() => {
-  if (selectedCategory.value === 'All') {
-    return totalProducts.value
-  }
-  return props.products.filter(product => 
-    product.category === selectedCategory.value
-  ).length
-})
+// Computed properties from the store
+const categories = computed(() => productsStore.categories)
+const selectedCategory = computed(() => productsStore.selectedCategory)
+const totalProducts = computed(() => productsStore.totalProducts)
+const filteredCount = computed(() => productsStore.filteredProducts.length)
 
 // Methods
 const getCategoryCount = (category) => {
-  if (category === 'All') {
-    return totalProducts.value
-  }
-  return props.products.filter(product => product.category === category).length
+  return productsStore.categoryCount[category] || 0
 }
 
 const selectCategory = (category) => {
   console.log('🏷️ Category selected:', category)
-  selectedCategory.value = category
-  
-  // Emit event to parent (for future implementation)
-  emit('category-changed', {
-    category,
-    filteredProducts: getFilteredProducts(category)
-  })
-  
-  // Visual feedback
+  productsStore.setCategory(category)
   console.log(`✅ Now showing ${filteredCount.value} products in "${category}" category`)
 }
 
 const clearFilter = () => {
   selectCategory('All')
 }
-
-const getFilteredProducts = (category) => {
-  if (category === 'All') {
-    return props.products
-  }
-  return props.products.filter(product => product.category === category)
-}
-
-// Initialize with 'All' category
-selectCategory('All')
 </script>
 
 <style scoped>

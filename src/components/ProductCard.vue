@@ -66,7 +66,14 @@
 </template>
 
 <script setup>
-import { ref, computed, defineProps } from 'vue'
+import { ref, computed, defineProps, createApp } from 'vue'
+import { useCartStore } from '../stores/cartStore.js'
+import { pinia } from '../stores/pinia.js'
+
+// Initialize Pinia and use the cart store
+const app = createApp({})
+app.use(pinia)
+const cartStore = useCartStore()
 
 // Props definition
 const props = defineProps({
@@ -114,16 +121,19 @@ const viewDetails = () => {
 const addToCart = () => {
   console.log('🛒 Adding to cart:', props.product.name, `$${props.product.price}`)
   
-  // Mock adding to cart with visual feedback
+  // Visual feedback
   isAddingToCart.value = true
   
-  // Simulate async operation
+  // Add to actual cart using Pinia store
+  const success = cartStore.addItem(props.product)
+  
+  // Simulate brief loading state
   setTimeout(() => {
     isAddingToCart.value = false
-    console.log('✅ Successfully added to cart:', props.product.name)
-  }, 1000)
-  
-  // Future: Add to actual cart state/localStorage
+    if (success) {
+      console.log('✅ Successfully added to cart:', props.product.name)
+    }
+  }, 800)
 }
 </script>
 
